@@ -72,4 +72,18 @@ Swap in any business by editing the assistant prompt + services config per branc
 - 🧪 Zero cost during development — Vapi trial credit (~60+ min) covers live-call testing
 - 💰 At scale: ~$0.05/min Vapi hosting + STT/TTS; BYO Gemini key keeps the brain free
 
+## ⚠️ Not HIPAA compliant
+
+This project is a **demo/portfolio reference**, not a production healthcare system. It has **not** been built, audited, or certified for HIPAA (or any other medical-privacy regulation):
+
+- No Business Associate Agreements (BAAs) exist for any service used here
+- Call audio, transcripts and logs may flow through third-party services without PHI safeguards
+
+Do **not** run it with real patient data. If you want this implemented **for** a practice that handles patient information — HIPAA-compliant architecture, BAAs, access controls, audit logging — contact me:
+
+- ✈️ Telegram: [@portaterrrr](https://t.me/portaterrrr) *(preferred)*
+- 📘 Facebook: [Potaterrr](https://www.facebook.com/profile.php?id=61593886946042)
+- 📧 Email: [kristiandyanbusiness@gmail.com](mailto:kristiandyanbusiness@gmail.com)
+- 💬 Discord: `potaterrr`
+
 Built by [@potaterrr](https://github.com/potaterrr) — Python automation dev who mashes the boring stuff so you don't have to. 🥔
