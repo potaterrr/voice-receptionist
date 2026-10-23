@@ -79,6 +79,14 @@ curl -X POST <BRANCH_WEBHOOK_URL> -H "Content-Type: application/json" \
 
 The included persona is **Potaterrr Clinic** (Mon–Fri, 08:00–17:00) with general consultation, follow-up, annual physical and vaccination services. Swap in any practice by editing the assistant prompt and service config per branch.
 
+## Sample build
+
+<p align="center">
+  <img src="docs/samples/n8n-workflow.png" alt="n8n workflow canvas: webhook, parse, end-of-call report, calendar check, logging and staff alerts" width="720" />
+</p>
+
+The n8n branch end to end: webhook → parse → end-of-call report → calendar check → book/log → staff alert. Captured from the working build; the public demo runs on synthetic data only.
+
 ## Pick your engine
 
 All three branches consume the same end-of-call report, so the comparison is apples-to-apples. Only one branch is live at a time — switch by changing one Server URL in Vapi.
