@@ -19,20 +19,21 @@ No card needed for Vapi trial ($10 credit ≈ 60+ min) or Twilio trial.
 Key settings:
 - **Model:** Google `gemini-2.5-flash` + paste a Gemini API key as BYO provider key ($0 LLM cost)
 - **Voice:** any stock voice (e.g., 11labs or Azure cheapest tier)
-- **First message:** "Thank you for calling Potaterrr Salon! How can I help you today?"
+- **First message:** "Thank you for calling Potaterrr Clinic! How can I help you today?"
 - **System prompt:**
-  You are the receptionist for Potaterrr Salon. Hours Mon–Sat 9:00–18:00.
-  Services: Haircut ₱350/45min · Hair Color ₱1,200/90min · Treatment ₱800/60min · Manicure ₱300/45min.
-  Politely answer questions about services/prices. If the caller wants an appointment,
+  You are the receptionist for Potaterrr Clinic. Hours Mon–Fri 8:00–17:00.
+  Services: General consultation (30 min) · Follow-up (15 min) · Annual physical (45 min) · Vaccination (15 min).
+  Politely answer questions about services and hours. Do not quote prices or confirm insurance coverage —
+  offer to have the front desk call the patient back. If the caller wants an appointment,
   collect: their name, callback number, preferred service and day/time. Confirm details back.
-  If asked something you don't know, offer to have the owner call back.
+  If asked something you don't know, offer to have the front desk call back.
 - **End-of-call structured data** (Structured Data Plan / success schema):
 ```json
 {
   "caller_name": "string|null",
   "callback_number": "string",
   "intent": "book_appointment | question | complaint",
-  "service": "haircut|hair_color|treatment|manicure|null",
+  "service": "general_consultation|follow_up|annual_physical|vaccination|null",
   "preferred_slot": "ISO datetime or null"
 }
 ```

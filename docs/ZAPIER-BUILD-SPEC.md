@@ -5,7 +5,7 @@ Zapier Zaps can't be created via API, so build this once by hand. Exact steps be
 ## Prereq
 - Zapier plan must include **Webhooks by Zapier → Catch Hook** (most paid plans; check yours)
 
-## Zap: "Voice Receptionist - potaterrr salon"
+## Zap: "Voice Receptionist - Potaterrr Clinic"
 
 ### Step 1 — Trigger: Webhooks by Zapier → Catch Hook
 - Copy the generated **custom webhook URL** → this is the branch's Server URL
@@ -22,7 +22,7 @@ Zapier Zaps can't be created via API, so build this once by hand. Exact steps be
 ### Step 4 — Paths
 **Path A "Free & bookable"** (only continue if Step 3 found nothing AND intent = book_appointment)
 1. Google Calendar → Create detailed event
-   - Title: `Potaterrr Salon: {{service}} — {{caller_name}}`
+   - Title: `Potaterrr Clinic: {{service}} — {{caller_name}}`
    - Start/End from structuredData slot
    - Description: caller name + number + call id + "Booked by AI Receptionist (Zapier branch)"
 2. Google Sheets → Create spreadsheet row(s)
@@ -30,7 +30,7 @@ Zapier Zaps can't be created via API, so build this once by hand. Exact steps be
      call_id | caller_name | callback_number | intent | service | preferred_slot | status | summary | platform
    - status = `booked`, platform = `zapier`
 3. Gmail → Send email to `kristiandyanbusiness@gmail.com`
-   - Subject: `📞 Potaterrr Salon — BOOKED`
+   - Subject: `📞 Potaterrr Clinic — BOOKED`
    - Body: caller, service, slot, summary + calendar link
 
 **Path B "Conflict"** (Step 3 found an event AND intent = book_appointment)

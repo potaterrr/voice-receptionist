@@ -23,7 +23,7 @@ When Vapi goes live later, the assistant is configured to emit exactly this.
         "caller_name": "Maria Santos",
         "callback_number": "+639171234567",
         "intent": "book_appointment | question | complaint",
-        "service": "haircut | hair_color | treatment | manicure | null",
+        "service": "general_consultation | follow_up | annual_physical | vaccination | null",
         "preferred_slot": "2026-08-27T14:00 (ISO local, Asia/Manila) or null"
       }
     },
@@ -36,7 +36,7 @@ When Vapi goes live later, the assistant is configured to emit exactly this.
 1. Ignore if `message.type != "end-of-call-report"`
 2. Extract `artifact.structuredData`
 3. If `intent == book_appointment` AND `preferred_slot` present:
-   - Conflict-check calendar → if free: create event "Salon: {service} — {caller_name}"
+   - Conflict-check calendar → if free: create event "Clinic: {service} — {caller_name}"
    - If taken: log status `conflict`, alert owner with fallback note
 4. Else: log status `no_booking` (question/complaint routing)
 5. Always: append row to call log + send owner alert via configured channel

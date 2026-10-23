@@ -7,15 +7,15 @@
       "customer": { "number": "+639171234567" }
     },
     "artifact": {
-      "transcript": "AI: Thank you for calling Potaterrr Salon, how may I help you? Customer: Hi, I'd like to book a haircut tomorrow afternoon. AI: Sure! May I get your name? Customer: Maria Santos. AI: Any time preference? Customer: Around 2 PM please.",
+      "transcript": "AI: Thank you for calling Potaterrr Clinic, how may I help you? Customer: Hi, I'd like to book a general consultation tomorrow afternoon. AI: Sure! May I get your name? Customer: Maria Santos. AI: Any time preference? Customer: Around 2 PM please.",
       "structuredData": {
         "caller_name": "Maria Santos",
         "callback_number": "+639171234567",
         "intent": "book_appointment",
-        "service": "haircut",
+        "service": "general_consultation",
         "preferred_slot": "{{TOMORROW_1400}}"
       }
     },
-    "summary": "Maria Santos wants a haircut at 2 PM tomorrow."
+    "summary": "Maria Santos wants a general consultation at 2 PM tomorrow."
   }
 }

@@ -7,15 +7,15 @@
       "customer": { "number": "+639273334444" }
     },
     "artifact": {
-      "transcript": "AI: Thank you for calling Potaterrr Salon, how may I help you? Customer: I want a manicure last Monday morning. AI: I'm sorry, I can only book future appointments. Customer: Ah okay, forget it then.",
+      "transcript": "AI: Thank you for calling Potaterrr Clinic, how may I help you? Customer: I want a follow-up last Monday morning. AI: I'm sorry, I can only book future appointments. Customer: Ah okay, forget it then.",
       "structuredData": {
         "caller_name": "Ana Reyes",
         "callback_number": "+639273334444",
         "intent": "book_appointment",
-        "service": "manicure",
+        "service": "follow_up",
         "preferred_slot": "2026-08-24T10:00"
       }
     },
-    "summary": "Ana Reyes asked for a past slot; not bookable, needs follow-up."
+    "summary": "Ana Reyes asked for a past follow-up slot; not bookable, needs follow-up."
   }
 }
