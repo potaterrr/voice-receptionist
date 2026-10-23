@@ -219,9 +219,10 @@ Tell me your call volume, services and compliance needs. I'll tell you whether a
 <!-- TODO(Christian): replace this placeholder with your real Cal.com/Calendly link before sending to clients. -->
 **[Book a fit call →](https://cal.com/your-handle/intro-call)**
 
-Prefer a direct line?
+Prefer to message first? WhatsApp is fastest.
 
-- ✈️ Telegram: [@portaterrrr](https://t.me/portaterrrr) *(preferred)*
+- 💬 WhatsApp: [@potaiterrr](https://wa.me/potaiterrr) *(preferred)*
+- ✈️ Telegram: [@portaterrrr](https://t.me/portaterrrr)
 - 📧 Email: [kristiandyanbusiness@gmail.com](mailto:kristiandyanbusiness@gmail.com)
 - 📘 Facebook: [Potaterrr](https://www.facebook.com/profile.php?id=61593886946042)
 - 💬 Discord: `potaterrr`
