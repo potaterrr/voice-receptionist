@@ -66,7 +66,7 @@ The simulator ships with three synthetic calls. No real patient data is used.
 |---|---|---|
 | **Bookable** | Caller asks for a general consultation tomorrow at 2 PM | Calendar event created · staff alerted · call logged |
 | **Question** | Caller asks how long an annual physical takes | No booking · call logged · staff alerted for follow-up |
-| **Past slot** | Caller asks for a follow-up last Monday | Not bookable · logged as conflict · staff alerted |
+| **Past slot** | Caller asks for a follow-up last Monday | Not bookable · logged as `no_booking` · staff alerted |
 
 Run one yourself:
 
