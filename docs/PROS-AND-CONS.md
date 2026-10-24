@@ -7,7 +7,7 @@ Tested with identical simulated calls: bookable / pricing question / past-slot r
 
 **Pros**
 - Fastest visual debugging: scenario history shows every module's in/out
-- Native Vapi + Google Calendar + Telegram apps = fewest custom mappings
+- Native Retell + Google Calendar + Telegram apps = fewest custom mappings
 - Data Store gives zero-setup persistence (no external DB)
 - Instant webhooks; scenario auto-pause on repeated errors protects quota
 

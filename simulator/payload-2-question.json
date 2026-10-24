@@ -1,21 +1,24 @@
 {
-  "message": {
-    "type": "end-of-call-report",
-    "endedReason": "customer-ended-call",
-    "call": {
-      "id": "sim-question-002",
-      "customer": { "number": "+6392011112222" }
-    },
-    "artifact": {
-      "transcript": "AI: Thank you for calling Potaterrr Clinic, how may I help you? Customer: How long does an annual physical take? AI: An annual physical takes about 45 minutes. Walk-ins are accepted until 4 PM. Customer: Okay, I'll think about it, thanks!",
-      "structuredData": {
+  "event": "call_analyzed",
+  "call": {
+    "call_id": "sim-question-002",
+    "agent_id": "sim-agent",
+    "from_number": "+15550203",
+    "to_number": "+16315550123",
+    "direction": "inbound",
+    "call_status": "ended",
+    "transcript": "Agent: Thank you for calling Potaterrr Clinic, how may I help you? Caller: How long does an annual physical take? Agent: An annual physical takes about 45 minutes. Walk-ins are accepted until 4 PM. Caller: Okay, I'll think about it, thanks!",
+    "call_analysis": {
+      "call_summary": "Caller asked about annual physical duration and walk-ins; no booking made.",
+      "call_successful": true,
+      "user_sentiment": "Neutral",
+      "custom_analysis_data": {
         "caller_name": null,
-        "callback_number": "+6392011112222",
+        "callback_number": "+15550203",
         "intent": "question",
         "service": "annual_physical",
         "preferred_slot": null
       }
-    },
-    "summary": "Caller asked about annual physical duration and walk-ins; no booking made."
+    }
   }
 }

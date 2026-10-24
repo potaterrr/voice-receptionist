@@ -2,17 +2,17 @@
 
 **Answer every missed and after-hours call. Book the appointment. Alert the front desk.**
 
-An AI receptionist for clinics and appointment-based practices — built on **Make, n8n or Zapier** over one shared **Vapi + Twilio** voice layer. It picks up when the front desk can't, captures structured intake, checks the calendar, books the slot, logs the call and alerts your team.
+An AI receptionist for clinics and appointment-based practices — built on **Make, n8n or Zapier** over one shared **Retell** voice layer. It picks up when the front desk can't, captures structured intake, checks the calendar, books the slot, logs the call and alerts your team.
 
 <p align="left">
   <a href="#compliance--data-handling">
     <img src="https://img.shields.io/badge/%F0%9F%94%92_HIPAA--compliant_build_available-2ea886?style=for-the-badge" alt="HIPAA-compliant build available" />
   </a>
-  <img src="https://img.shields.io/badge/Vapi_%2B_Twilio-voice_layer-6D00CC?style=for-the-badge" alt="Vapi plus Twilio" />
+  <img src="https://img.shields.io/badge/Retell-voice_layer-6D00CC?style=for-the-badge" alt="Retell" />
   <img src="https://img.shields.io/badge/Make_%7C_n8n_%7C_Zapier-three_builds-2088FF?style=for-the-badge" alt="Make, n8n and Zapier" />
 </p>
 
-> **Demo status:** simulated end-to-end today on Make and n8n. Live phone calls are a [documented Vapi + Twilio setup](docs/VAPI-LIVE-SETUP.md) away, and a pilot configures a real number.
+> **Demo status:** the n8n branch runs live end-to-end on synthetic call payloads — real Google Calendar booking, Google Sheets call log, and Gmail alert. The phone call itself is simulated; live telephony is a [documented Retell setup](docs/RETELL-LIVE-SETUP.md) away. Make and Zapier branches remain simulated.
 
 ---
 
@@ -34,7 +34,7 @@ An AI receptionist doesn't replace your team. It covers the calls that would oth
 Patient calls
    │  no answer / after hours / front desk busy
    ▼
-[ Vapi voice agent + Twilio number ]
+[ Retell voice agent + phone number ]
    │  natural conversation · name · callback · intent · preferred slot
    ▼
 [ Make  |  n8n  |  Zapier ]
@@ -64,9 +64,9 @@ The simulator ships with three synthetic calls. No real patient data is used.
 
 | Scenario | What happens | Result |
 |---|---|---|
-| **Bookable** | Caller asks for a general consultation tomorrow at 2 PM | Calendar event created · staff alerted · call logged |
+| **Bookable** | Maria Santos asks for a consultation at 2 PM | Calendar event created · staff alerted · call logged |
 | **Question** | Caller asks how long an annual physical takes | No booking · call logged · staff alerted for follow-up |
-| **Past slot** | Caller asks for a follow-up last Monday | Not bookable · logged as `no_booking` · staff alerted |
+| **Past slot** | James Carter asks for a follow-up last Monday | Not bookable · logged as `no_booking` · staff alerted |
 
 Run one yourself:
 
@@ -82,14 +82,14 @@ The included persona is **Potaterrr Clinic** (Mon–Fri, 08:00–17:00) with gen
 ## Sample build
 
 <p align="center">
-  <img src="docs/samples/n8n-workflow.png" alt="n8n workflow canvas: webhook, parse, end-of-call report, calendar check, logging and staff alerts" width="720" />
+  <img src="docs/samples/n8n-workflow.png" alt="n8n workflow canvas: Retell webhook, call_analyzed filter, dedupe, calendar check, logging and staff alerts" width="720" />
 </p>
 
-The n8n branch end to end: webhook → parse → end-of-call report → calendar check → book/log → staff alert. Captured from the working build; the public demo runs on synthetic data only.
+The n8n branch end to end: Retell webhook → immediate 200 ack → call_analyzed filter → call_id dedupe → calendar check → book/log → staff alert. Captured from the working build; the public demo runs on synthetic data only.
 
 ## Pick your engine
 
-All three branches consume the same end-of-call report, so the comparison is apples-to-apples. Only one branch is live at a time — switch by changing one Server URL in Vapi.
+All three branches consume the same `call_analyzed` report, so the comparison is apples-to-apples. Only one branch is live at a time — switch by changing the agent's webhook URL in Retell.
 
 | Engine | Best for | Trade-off |
 |---|---|---|
@@ -175,7 +175,7 @@ Best for healthcare practices that will handle real patient information.
 ## FAQ
 
 **Is this answering real calls today?**  
-Not in this public repo. The pipeline is simulated end-to-end on Make and n8n. Live telephony is documented and configured during a pilot.
+Not in this public repo. The n8n branch runs live on synthetic call payloads; Make and Zapier are simulated. Live telephony is documented and configured during a pilot.
 
 **Does it replace front-desk staff?**  
 No. It covers overflow and after-hours calls, then hands questions and exceptions back to your team with a summary.
@@ -203,16 +203,16 @@ Scope and quote follow the fit call. No prices are published because the complia
 <summary>Repo layout, contract and build docs</summary>
 
 ```text
-contract/end-of-call-report.md    # JSON contract every branch consumes
+contract/call-analyzed-report.md  # Retell JSON contract every branch consumes
 simulator/payload-{1,2,3}-*.json  # synthetic calls: bookable / question / past-slot
-docs/VAPI-LIVE-SETUP.md           # plug in real calling (Vapi + Twilio trial)
+docs/RETELL-LIVE-SETUP.md         # plug in real calling (Retell agent + number)
 docs/ZAPIER-BUILD-SPEC.md         # click-by-click build for the Zapier branch
 docs/PROS-AND-CONS.md             # platform scorecard
 README.md                         # you are here
 ```
 
-- **Contract:** [`contract/end-of-call-report.md`](contract/end-of-call-report.md)
-- **Live-call setup:** [`docs/VAPI-LIVE-SETUP.md`](docs/VAPI-LIVE-SETUP.md)
+- **Contract:** [`contract/call-analyzed-report.md`](contract/call-analyzed-report.md)
+- **Live-call setup:** [`docs/RETELL-LIVE-SETUP.md`](docs/RETELL-LIVE-SETUP.md)
 - **Zapier build:** [`docs/ZAPIER-BUILD-SPEC.md`](docs/ZAPIER-BUILD-SPEC.md)
 - **Platform scorecard:** [`docs/PROS-AND-CONS.md`](docs/PROS-AND-CONS.md)
 
@@ -224,8 +224,7 @@ The demo persona is synthetic. Never send real patient data to the public simula
 
 Tell me your call volume, services and compliance needs. I'll tell you whether a pilot makes sense.
 
-<!-- TODO(Christian): replace this placeholder with your real Cal.com/Calendly link before sending to clients. -->
-**[Book a fit call →](https://cal.com/your-handle/intro-call)**
+**[Book a fit call →](https://cal.com/christian-john-vallejos-adws8d/60min)**
 
 Prefer to message first? WhatsApp is fastest.
 

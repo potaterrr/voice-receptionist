@@ -11,11 +11,16 @@ Zapier Zaps can't be created via API, so build this once by hand. Exact steps be
 - Copy the generated **custom webhook URL** → this is the branch's Server URL
 
 ### Step 2 — Filter (only proceed if…)
-- `message type` (Text) Exactly equals `end-of-call-report`
+- `event` (Text) Exactly equals `call_analyzed`
+
+### Step 2b — Dedupe guard
+- Google Sheets → Lookup spreadsheet row
+- Spreadsheet: your call log · Lookup column: `call_id` · Lookup value: `call call_id`
+- Filter: only continue if no row was found (Retell retries non-2xx up to 3 times)
 
 ### Step 3 — Google Calendar → Find event(s)
 - Calendar: your primary
-- Search From: `message artifact structuredData preferred_slot`
+- Search From: `call call_analysis custom_analysis_data preferred_slot`
 - Search To: same + 1 hour (use Formatter Date/Time add 1h if needed)
 - ✅ "Create Google Calendar event if it doesn't exist yet?" = false
 
@@ -23,8 +28,8 @@ Zapier Zaps can't be created via API, so build this once by hand. Exact steps be
 **Path A "Free & bookable"** (only continue if Step 3 found nothing AND intent = book_appointment)
 1. Google Calendar → Create detailed event
    - Title: `Potaterrr Clinic: {{service}} — {{caller_name}}`
-   - Start/End from structuredData slot
-   - Description: caller name + number + call id + "Booked by AI Receptionist (Zapier branch)"
+   - Start/End from `custom_analysis_data.preferred_slot` + service duration
+   - Description: caller name + number + `call_id` + "Booked by AI Receptionist (Zapier branch)"
 2. Google Sheets → Create spreadsheet row(s)
    - Spreadsheet: create "Receptionist Calls (Zapier)" with headers:
      call_id | caller_name | callback_number | intent | service | preferred_slot | status | summary | platform

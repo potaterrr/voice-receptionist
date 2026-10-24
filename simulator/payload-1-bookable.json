@@ -1,21 +1,24 @@
 {
-  "message": {
-    "type": "end-of-call-report",
-    "endedReason": "customer-ended-call",
-    "call": {
-      "id": "sim-book-001",
-      "customer": { "number": "+639171234567" }
-    },
-    "artifact": {
-      "transcript": "AI: Thank you for calling Potaterrr Clinic, how may I help you? Customer: Hi, I'd like to book a general consultation tomorrow afternoon. AI: Sure! May I get your name? Customer: Maria Santos. AI: Any time preference? Customer: Around 2 PM please.",
-      "structuredData": {
+  "event": "call_analyzed",
+  "call": {
+    "call_id": "sim-book-001",
+    "agent_id": "sim-agent",
+    "from_number": "+15550201",
+    "to_number": "+16315550123",
+    "direction": "inbound",
+    "call_status": "ended",
+    "transcript": "Agent: Thank you for calling Potaterrr Clinic, how may I help you? Caller: Hi, I'd like to book a general consultation tomorrow afternoon. Agent: Sure! May I get your name? Caller: Maria Santos. Agent: Any time preference? Caller: Around 2 PM please.",
+    "call_analysis": {
+      "call_summary": "Maria Santos wants a general consultation at 2 PM tomorrow.",
+      "call_successful": true,
+      "user_sentiment": "Positive",
+      "custom_analysis_data": {
         "caller_name": "Maria Santos",
-        "callback_number": "+639171234567",
+        "callback_number": "+15550201",
         "intent": "book_appointment",
         "service": "general_consultation",
         "preferred_slot": "{{TOMORROW_1400}}"
       }
-    },
-    "summary": "Maria Santos wants a general consultation at 2 PM tomorrow."
+    }
   }
 }
