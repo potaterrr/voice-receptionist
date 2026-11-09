@@ -228,9 +228,8 @@ Tell me your call volume, services and compliance needs. I'll tell you whether a
 
 **[Book a fit call →](https://cal.com/christian-john-vallejos-adws8d/60min)**
 
-Prefer to message first? WhatsApp is fastest.
+Prefer to message first? Email or Facebook is quickest.
 
-- 💬 WhatsApp: [+63 REDACTED](https://wa.me/REDACTED?text=Hi%21%20I%27d%20like%20to%20talk%20about%20the%20voice%20receptionist.) *(preferred)*
 - 📧 Email: [kristiandyanbusiness@gmail.com](mailto:kristiandyanbusiness@gmail.com)
 - 📘 Facebook: [Potaterrr](https://www.facebook.com/profile.php?id=61593886946042)
 - 💬 Discord: `potaterrr`
