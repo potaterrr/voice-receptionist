@@ -1,8 +1,10 @@
-# AI Voice Receptionist for Clinics
+# AI Voice Receptionist
 
-**Answer every missed and after-hours call. Book the appointment. Alert the front desk.**
+**Answer every missed and after-hours call. Book the appointment. Alert your team.**
 
-An AI receptionist for clinics and appointment-based practices — built on **Make, n8n or Zapier** over one shared **Retell** voice layer. It picks up when the front desk can't, captures structured intake, checks the calendar, books the slot, logs the call and alerts your team.
+An AI receptionist for appointment-based businesses — salons, clinics, med spas, dental, law offices, trades — built on **Make, n8n or Zapier** over one shared **Retell** voice layer. It picks up when your team can't, captures structured intake, checks the calendar, books the slot, logs the call and alerts you.
+
+▶ **[Watch the 1:37 film and try the demo →](https://potaterrr.github.io/projects/ai-voice-receptionist/)**
 
 <p align="left">
   <a href="#compliance--data-handling">
@@ -18,20 +20,20 @@ An AI receptionist for clinics and appointment-based practices — built on **Ma
 
 ## The problem
 
-A clinic's phone is a revenue and care-access channel. When it rings out:
+A business's phone is its front door and its revenue channel. When it rings out:
 
-- New patients call the next practice on their list.
+- Callers call the next business on their list.
 - After-hours callers leave no message and don't call back.
-- The front desk juggles check-ins, walk-ins and the phone at the same time.
+- The front desk juggles walk-ins, appointments and the phone at the same time.
 - Staff re-enter the same details from voicemail into the calendar.
 - Nobody can tell you how many calls were missed, or why.
 
 An AI receptionist doesn't replace your team. It covers the calls that would otherwise go to voicemail — instantly, consistently, and with a written record.
 
-## What patients experience
+## What callers experience
 
 ```text
-Patient calls
+Caller calls
    │  no answer / after hours / front desk busy
    ▼
 [ Retell voice agent + phone number ]
@@ -43,13 +45,13 @@ Patient calls
 Appointment on the calendar  +  call summary for the front desk
 ```
 
-1. The patient calls the clinic's existing number.
+1. The caller dials the business's existing number.
 2. If nobody picks up (or it's after hours), the AI answers instantly and conversationally.
 3. It answers questions about services and hours, then captures **name, callback number, intent, service and preferred slot** as structured data.
 4. The workflow checks the calendar and books the appointment if the slot is free.
 5. Staff get a summary alert; every call is logged — including questions and conflicts that need a human.
 
-## What the clinic gets
+## What you get
 
 - **24/7 coverage** for missed and after-hours calls — no hold music, no voicemail void.
 - **Structured intake**, not a scribbled message: name, number, intent, service and preferred time.
@@ -65,7 +67,7 @@ The simulator ships with three synthetic calls. No real patient data is used.
 | Scenario | What happens | Result |
 |---|---|---|
 | **Bookable** | Maria Santos asks for a consultation at 2 PM | Calendar event created · staff alerted · call logged |
-| **Question** | Caller asks how long an annual physical takes | No booking · call logged · staff alerted for follow-up |
+| **Question** | Caller asks how long a standard service takes | No booking · call logged · staff alerted for follow-up |
 | **Past slot** | James Carter asks for a follow-up last Monday | Not bookable · logged as `no_booking` · staff alerted |
 
 Run one yourself:
@@ -77,7 +79,7 @@ curl -X POST <BRANCH_WEBHOOK_URL> -H "Content-Type: application/json" \
 
 > Branch webhook URLs are unauthenticated endpoints. Keep them secret and never commit real URLs.
 
-The included persona is **Potaterrr Clinic** (Mon–Fri, 08:00–17:00) with general consultation, follow-up, annual physical and vaccination services. Swap in any practice by editing the assistant prompt and service config per branch.
+The included persona is **Potaterrr Clinic** (Mon–Fri, 08:00–17:00) — one worked example, not a limit. Swap in any business by editing the assistant prompt and service config per branch: a salon's service menu, a trade's call-out types, a firm's consultation slots.
 
 ## Sample build
 
@@ -128,9 +130,9 @@ Best for a single location that wants evidence before rolling out.
 
 **Typical timeline:** 1–2 weeks.
 
-### 02 · Practice — fit the real front desk
+### 02 · Business — fit the real front desk
 
-Best for a growing practice with multiple services or providers.
+Best for a growing business with multiple services, providers or locations.
 
 - Everything in Pilot.
 - Custom intake fields and service menu.
@@ -156,7 +158,7 @@ Best for healthcare practices that will handle real patient information.
 
 ## How a rollout works
 
-1. **Fit call (20 min)** — goals, call volume, platforms, compliance needs.
+1. **Fit call (60 min)** — goals, call volume, platforms, compliance needs.
 2. **Discovery** — services, hours, intake fields, calendar ownership, alert routing.
 3. **Build** — one platform, configured for your practice.
 4. **Simulate** — synthetic scenarios reviewed with your team.
@@ -186,8 +188,8 @@ Client-managed → Zapier. Agency-managed → Make. Self-hosted or privacy-sensi
 **Is it HIPAA compliant?**  
 The public demo is not. A HIPAA-compliant build is available as a scoped engagement, with BAAs, access controls and audit logging established per deployment.
 
-**Can it integrate with our EHR?**  
-The current build books Google Calendar and alerts staff. EHR or PM-system integrations are scoped per engagement after discovery.
+**Can it integrate with our booking system or EHR?**  
+The current build books Google Calendar and alerts staff. EHR, practice-management or booking-system integrations are scoped per engagement after discovery.
 
 **Who owns the workflow and data?**  
 You do. The n8n branch is fully self-hostable, and every branch is exportable.
