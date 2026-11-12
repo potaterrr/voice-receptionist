@@ -4,7 +4,7 @@
 
 An AI receptionist for appointment-based businesses — salons, clinics, med spas, dental, law offices, trades — built on **Make, n8n or Zapier** over one shared **Retell** voice layer. It picks up when your team can't, captures structured intake, checks the calendar, books the slot, logs the call and alerts you.
 
-▶ **[Watch the 1:37 film and try the demo →](https://potaterrr.github.io/projects/ai-voice-receptionist/)**
+▶ **[Watch the 1:37 film and try the demo →](https://inodepi.github.io/projects/ai-voice-receptionist/)**
 
 <p align="left">
   <a href="#compliance--data-handling">
@@ -232,8 +232,8 @@ Prefer to message first? Email or Facebook is quickest.
 
 - 📧 Email: [kristiandyanbusiness@gmail.com](mailto:kristiandyanbusiness@gmail.com)
 - 📘 Facebook: [Potaterrr](https://www.facebook.com/profile.php?id=61593886946042)
-- 💬 Discord: `potaterrr`
+- 💬 Discord: `inodepi`
 
 ---
 
-Built by [@potaterrr](https://github.com/potaterrr) — Python automation dev who mashes the boring stuff so you don't have to. 🥔
+Built by [@inodepi](https://github.com/inodepi) — Python automation dev who mashes the boring stuff so you don't have to. 🥔
